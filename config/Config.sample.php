@@ -4,7 +4,7 @@
  * Never commit this file to github or whatever.
  * 
  * @package config
- * @author Sam Verschueren  <sam@histranger.be>
+ * @author Sam Verschueren  <sam.verschueren@gmail.com>
  */
 class Config {
     // Database variables
