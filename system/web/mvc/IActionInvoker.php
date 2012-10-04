@@ -4,7 +4,7 @@
  * 
  * @package system.web.mvc
  * @since 2012-06-29
- * @author Sam Verschueren  <sam@histranger.be>
+ * @author Sam Verschueren  <sam.verschueren@gmail.com>
  */
 interface IActionInvoker {
     

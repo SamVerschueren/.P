@@ -6,7 +6,7 @@ require_once('System/Collections/IEnumerable.php');
  * 
  * @package system.collections.generic
  * @since 2012-06-29
- * @author Sam Verschueren  <sam@histranger.be>
+ * @author Sam Verschueren  <sam.verschueren@gmail.com>
  */
 interface ICollection extends IEnumerable {
     /**

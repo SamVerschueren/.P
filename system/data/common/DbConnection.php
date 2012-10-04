@@ -4,7 +4,7 @@
  * 
  * @package system.data.common
  * @since 2012-07-28
- * @author Sam Verschueren  <sam@histranger.be>
+ * @author Sam Verschueren  <sam.verschueren@gmail.com>
  */
 class DbConnection {
     

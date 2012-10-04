@@ -1,5 +1,6 @@
 <?php
 require_once('ActionResult.php');
+require_once('JsonRequestBehaviour.php');
 
 /**
  * Represents a class that is used to send JSON-formatted content to the response.

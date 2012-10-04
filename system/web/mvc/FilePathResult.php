@@ -6,7 +6,7 @@ require_once('FileResult.php');
  * 
  * @package system.web.mvc
  * @since 2012-07-26
- * @author Sam Verschueren  <sam@histranger.be>
+ * @author Sam Verschueren  <sam.verschueren@gmail.com>
  */
 class FilePathResult extends FileResult {
     

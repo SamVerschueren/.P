@@ -13,7 +13,7 @@ require_once('system/web/routing/RouteValueDictionary.php');
  * 
  * @package system.web.mvc
  * @since 2012-07-23
- * @author Sam Verschueren  <sam@histranger.be>
+ * @author Sam Verschueren  <sam.verschueren@gmail.com>
  */
 class Controller {
 
@@ -124,7 +124,9 @@ class Controller {
             unset($_SESSION['viewData']);
         }
         
-        $this->viewData['title'] = $this->actionInvoker->getInvokedAction();
+        if(!isset($this->viewData['title'])) {
+            $this->viewData['title'] = $this->actionInvoker->getInvokedAction();
+        }
         
         if($model != null) {
             $this->viewData['model'] = $model;   

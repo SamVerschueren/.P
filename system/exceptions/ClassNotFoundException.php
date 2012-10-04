@@ -6,7 +6,7 @@ require_once('NotFoundException.php');
  * 
  * @package exceptions
  * @since 2012-07-11
- * @author Sam Verschueren  <sam@histranger.be>
+ * @author Sam Verschueren  <sam.verschueren@gmail.com>
  */
 class ClassNotFoundException extends NotFoundException {
     

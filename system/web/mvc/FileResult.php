@@ -6,7 +6,7 @@ require_once('ActionResult.php');
  * 
  * @package system.web.mvc
  * @since 2012-06-23
- * @author Sam Verschueren  <sam@histranger.be>
+ * @author Sam Verschueren  <sam.verschueren@gmail.com>
  */
 abstract class FileResult extends ActionResult {
 	

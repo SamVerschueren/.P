@@ -5,7 +5,7 @@
  * 
  * @package system.data.entity
  * @since 2012-08-01
- * @author Sam Verschueren  <sam@histranger.be>
+ * @author Sam Verschueren  <sam.verschueren@gmail.com>
  */
 interface IMapper {
     

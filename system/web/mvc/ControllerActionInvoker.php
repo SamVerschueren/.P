@@ -6,7 +6,7 @@ require_once('IActionInvoker.php');
  * 
  * @package system.web.mvc
  * @since 2012-07-23
- * @author Sam Verschueren  <sam@histranger.be>
+ * @author Sam Verschueren  <sam.verschueren@gmail.com>
  */
 class ControllerActionInvoker implements IActionInvoker {
 
