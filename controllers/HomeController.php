@@ -1,13 +1,12 @@
 <?php
 require_once('system/web/mvc/Controller.php');
+
 require_once('viewmodels/NameViewModel.php');
 
 class HomeController extends Controller {
     
     public function index() {
-        $this->viewData['test'] = 'Hello World';
-        
-        return $this->view(new NameViewModel());
+        return $this->view(new NameViewModel(new Name('Sam', 'Verschueren')));
     }
     
     public function about() {

@@ -1,15 +1,13 @@
 <?php
+require_once('models/domain/Name.php');
+
 class NameViewModel {
     
-    private $firstName;
-    private $lastName = 'Verschueren';
+    private $name;
+    private $version = '1.0';
     
-    public function __construct() {
-        $this->firstName = 'Sam';
-    }
-    
-    public function getFirstName() {
-        return $this->firstName;
+    public function __construct(Name $name) {
+        $this->name = $name;
     }
 }
 ?>
