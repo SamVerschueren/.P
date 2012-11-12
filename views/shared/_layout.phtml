@@ -7,7 +7,7 @@
   
     <title><?php echo $viewData['title']; ?></title>
 
-    <base href="http://localhost/dot%20P/" />
+    <base href="<?php echo trim(Config::$SERVER, '/') . '/' . trim(Config::$SUBDIR, '/') . '/'; ?>" />
     
     <meta name="description" content="This is an example page rendered with the .P MVC framework." />
     <meta name="keywords" content="MVC, framework, .P, example" />
