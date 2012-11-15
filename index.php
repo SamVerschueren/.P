@@ -5,8 +5,6 @@ require_once('system/web/mvc/ViewEngine.php');
 require_once('system/exceptions/ClassNotFoundException.php');
 require_once('system/exceptions/runtime/UnsupportedOperationException.php');
 require_once('system/data/common/DbConnection.php');
-require_once('system/data/entity/DbModelBuilder.php');
-require_once('models/DAL/DotPContext.php');
 
 require_once('config/Config.php');
 

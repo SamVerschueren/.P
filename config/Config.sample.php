@@ -21,5 +21,8 @@ class Config {
     
     // The name of the session
     public static $SESSION_NAME = 'session';
+	
+    // The basename for the resourcebundle. Leave empty if i18n is not used.
+    public static $BUNDLE_NAME = '';
 }
 ?>
