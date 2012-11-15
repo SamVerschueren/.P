@@ -1,5 +1,7 @@
 <?php
 /**
+ * This class helps with the i18n of your application.
+ * 
  * @package system.i18n
  * @since 2012-11-15
  * @author Sam Verschueren  <sam.verschueren@gmail.com>
@@ -9,6 +11,12 @@ class ResourceBundle {
     private static $bundle;
     private static $array = array();
     
+    /**
+     * Gets a resource bundle using the specified base name and the default locale.
+     * 
+     * @param baseName              The basename of the resourcebundle.
+     * @return The ResourceBudle
+     */
     public static function getBundle($baseName) {
         if(!isset(self::$bundle)) {
             self::$bundle = new ResourceBundle();
