@@ -1,5 +1,6 @@
 <?php
 require_once('system/web/mvc/ViewResult.php');
+require_once('system/i18n/ResourceBundle.php');
 
 class ViewEngine {
     
@@ -29,6 +30,10 @@ class ViewEngine {
     public function render() {
         $viewData = $this->getViewResult()->getViewData();
         $model = $viewData['model'];
+        
+        if(Config::$BUNDLE_NAME != "") {
+            $bundle = ResourceBundle::getBundle(Config::$BUNDLE_NAME);
+        }
         
         include($this->viewResult->findView());
     }

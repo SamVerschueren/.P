@@ -17,16 +17,28 @@ class ResourceBundle {
      * @param baseName              The basename of the resourcebundle.
      * @return The ResourceBudle
      */
-    public static function getBundle($baseName) {
+    public static function getBundle($baseName, Locale $locale=null) {        
         if(!isset(self::$bundle)) {
             self::$bundle = new ResourceBundle();
         }
         
-        if(!file_exists('i18n/' .$baseName . '.properties')) {
-            throw new FileNotFoundException('The file ' . $baseName . '.properties does not exist.');
+        $fileName = $baseName . '.properties';
+        
+        if($locale == null) {
+            $languageCode = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+            
+            $fileName = $baseName . '_' . $languageCode . '.properties';
         }
         
-        self::readFile('i18n/' . $baseName . '.properties');
+        if(!file_exists('i18n/' . $fileName)) {
+            $fileName = $baseName . '.properties';
+            
+            if(!file_exists('i18n/' . $fileName)) {
+                throw new FileNotFoundException('The file ' . $fileName . ' does not exist.');
+            }
+        }
+        
+        self::readFile('i18n/' . $fileName);
         
         return self::$bundle;
     }
@@ -67,11 +79,14 @@ class ResourceBundle {
         $lines = file($fileName);
         
         foreach($lines as $line_num => $line) {
-            $exp = explode('=', $line);
+            $line = trim($line);
             
-            // TODO als er in de value ook een = staat wordt er daar ook op gesplitst. Met een for terug als concateneren ofzo...
-            
-            self::$array[trim($exp[0])] = trim($exp[1]);
+            if(!empty($line) && substr($line, 0, 1) != '#') {
+                $exp = explode('=', $line);
+                
+                // TODO als er in de value ook een = staat wordt er daar ook op gesplitst. Met een for terug als concateneren ofzo...
+                self::$array[trim($exp[0])] = trim($exp[1]);
+            }
         }
     }
 }
