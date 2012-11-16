@@ -80,6 +80,18 @@ class Locale {
         return $this->country;
     }
     
+    /**
+     * Returns the default locale
+     * 
+     * @return the default locale determined by the HTTP_ACCEPT_LANGUAGE of the webbrowser.
+     */
+    public static function getDefault() {
+        $language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+        $country = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 3, 2);
+        
+        return new Locale($language, $country);
+    }
+    
     public function __toString() {
         $country = $this->getCountry();
         

@@ -25,14 +25,14 @@ class ResourceBundle {
             self::$bundle = new ResourceBundle();
         }
         
+        if($locale == null) {
+            $locale = Locale::getDefault();
+        }
+        
         self::$locale = $locale;
         
         $fileName = $baseName . '.properties';
-        
-        if(self::$locale == null) {
-            self::$locale = new Locale(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
-        }
-        
+
         if(!file_exists('i18n/' . $fileName)) {
             throw new FileNotFoundException('The file ' . $fileName . ' does not exist.');
         }
