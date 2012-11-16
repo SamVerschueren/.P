@@ -32,7 +32,7 @@ class Locale {
      * 
      * @param language                  lowercase two-letter ISO-639 code.
      * @throws NullPointerException     if the language argument is null.
-     * @throws InvalidArgumentException if the language or country argument does not consist out of a two-letter code.
+     * @throws InvalidArgumentException if the language argument does not consist out of a two-letter code.
      */
     private function setLanguage($language) {
         if($language == null) {
@@ -59,8 +59,7 @@ class Locale {
      * Sets the country code.
      * 
      * @param country                   uppercase two-letter ISO-3166 code.
-     * @throws NullPointerException     if the language argument is null.
-     * @throws InvalidArgumentException if the language or country argument does not consist out of a two-letter code.
+     * @throws InvalidArgumentException if the country argument does not consist out of a two-letter code.
      */
     private function setCountry($country) {
         if($country != null) {
