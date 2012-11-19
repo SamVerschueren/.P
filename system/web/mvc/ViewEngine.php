@@ -30,10 +30,7 @@ class ViewEngine {
     public function render() {
         $viewData = $this->getViewResult()->getViewData();
         $model = $viewData['model'];
-        
-        if(Config::$BUNDLE_NAME != "") {
-            $bundle = ResourceBundle::getBundle(Config::$BUNDLE_NAME);
-        }
+        $i18n = $this->getViewResult()->getResourceBundle();
         
         include($this->viewResult->findView());
     }

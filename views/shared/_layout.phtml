@@ -25,7 +25,7 @@
         <div class="center">
             <h1>.P MVC framework</h1>
             
-            <h2>This is an example page of the .P mvc framework.</h2>
+            <h2><?php echo $i18n->getString("lblH2Header"); ?></h2>
             
             <nav>
                 <ul>
@@ -51,7 +51,7 @@
         <p class="center">
             <span class="floatLeft">2012</span>
             
-            <span class="floatRight">Created by Sam Verschueren</span>
+            <span class="floatRight"><?php printf($i18n->getString("lblCreatedBy"), "Sam Verschueren"); ?></span>
         </p>
     </footer>
 </div>

@@ -11,6 +11,7 @@
  */
 class Locale {
     
+    private static $default;
     private $language;
     private $country;
     
@@ -86,10 +87,14 @@ class Locale {
      * @return the default locale determined by the HTTP_ACCEPT_LANGUAGE of the webbrowser.
      */
     public static function getDefault() {
-        $language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        $country = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 3, 2);
-        
-        return new Locale($language, $country);
+        if(empty(self::$default)) {
+            $language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+            $country = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 3, 2);
+            
+            self::$default = new Locale($language, $country);
+        }
+
+        return self::$default;
     }
     
     public function __toString() {

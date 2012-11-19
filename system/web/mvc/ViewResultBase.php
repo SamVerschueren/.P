@@ -16,6 +16,7 @@ abstract class ViewResultBase extends ActionResult {
     private $viewName;
     private $viewData;
     private $controller;
+    private $resourceBundle;
     
     public function __construct() {
         
@@ -27,6 +28,22 @@ abstract class ViewResultBase extends ActionResult {
     
     public function getController() {
         return $this->controller;
+    }
+    
+    /**
+     * Binds the resourcebundle to the viewresult.
+     * 
+     * @param resourceBundle        The ResourceBundle
+     */
+    public function setResourceBundle(ResourceBundle $resourceBundle) {
+        $this->resourceBundle = $resourceBundle;
+    }
+    
+    /**
+     * @return the resourcebundle
+     */
+    public function getResourceBundle() {
+        return $this->resourceBundle;
     }
     
     /**

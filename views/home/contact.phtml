@@ -1,6 +1,7 @@
-<h1><?php echo $bundle->getString("lblContactTitle"); ?></h1>
+<h1><?php echo $i18n->getString("lblContactTitle"); ?></h1>
 
 <p>
-    <?php echo $bundle->getString("lblContactInfo"); ?>
-    <a href="mailto:sam.verschueren@gmail.com">sam.verschueren@gmail.com</a>.
+    <?php 
+        printf($i18n->getString("lblContactInfo"), '<a href="mailto:sam.verschueren@gmail.com">sam.verschueren@gmail.com</a>'); 
+    ?>
 </p>

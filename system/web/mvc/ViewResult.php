@@ -27,7 +27,7 @@ class ViewResult extends ViewResultBase {
      * @return  masterName      The name of the master view.
      */
     public function getMasterName() {
-        return $this->masterName;
+        return isset($this->masterName)?$this->masterName:'_layout';
     }
 
     /**

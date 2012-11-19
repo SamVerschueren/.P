@@ -12,7 +12,10 @@ function __autoload($class) {
     /**
      * If the file does not exists, the class does not exists.
      */
-    if(!file_exists('controllers/' . $class . '.php') && !file_exists('system/exceptions/' . $class . '.php') && !file_exists('viewmodels/' . $class . '.php')) {
+    if(!file_exists('controllers/' . $class . '.php') && 
+       !file_exists('system/exceptions/' . $class . '.php') && 
+       !file_exists('system/exceptions/runtime/' . $class . '.php') &&
+       !file_exists('viewmodels/' . $class . '.php')) {
         throw new ClassNotFoundException('Class ' . $class . ' does not exists.');        
     }
 
@@ -20,7 +23,12 @@ function __autoload($class) {
         require_once('controllers/' . $class . '.php');    
     }
     else if(strpos($class, 'Exception')) {
-        require_once('system/exceptions/' . $class . '.php');
+        if(file_exists('system/exceptions/' . $class . '.php')) {
+            require_once('system/exceptions/' . $class . '.php');
+        }
+        else if(file_exists('system/exceptions/runtime/' . $class . '.php')) {
+            require_once('system/exceptions/runtime/' . $class . '.php');
+        }
     }
     else if(strpos($class, 'ViewModel')) {
         require_once('viewmodels/' . $class . '.php');
@@ -44,9 +52,10 @@ catch(Exception $ex) {
 }
 
 $viewEngine = ViewEngine::getInstance();
-$viewEngine->getViewResult()->setMasterName('_layout');
 
 $viewData = $viewEngine->getViewResult()->getViewData();
+
+$i18n = $viewEngine->getViewResult()->getResourceBundle();
 
 function renderBody() {    
     ViewEngine::getInstance()->render();

@@ -153,10 +153,14 @@ class ResourceBundle {
             $line = trim($line);
             
             if(!empty($line) && substr($line, 0, 1) != '#') {
-                $exp = explode('=', $line);
+                $pos = strpos($line, '=');
                 
-                // TODO als er in de value ook een = staat wordt er daar ook op gesplitst. Met een for terug als concateneren ofzo...
-                self::$array[trim($exp[0])] = trim($exp[1]);
+                if($pos !== false) {
+                    $key = trim(substr($line, 0, $pos));
+                    $value = trim(substr($line, $pos+1));
+                    
+                    self::$array[$key] = $value;
+                }
             }
         }
     }

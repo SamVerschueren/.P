@@ -137,6 +137,10 @@ class Controller {
         $viewResult->setController($this->actionInvoker->getInvokedController());
         $viewResult->setViewName($this->actionInvoker->getInvokedAction());
         
+        if(Config::$BUNDLE_NAME != "") {
+            $viewResult->setResourceBundle(ResourceBundle::getBundle(Config::$BUNDLE_NAME));
+        }
+        
         return $viewResult;
     }   
     
